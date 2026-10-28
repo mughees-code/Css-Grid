@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Layout</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: auto;
+            display: grid;
+            grid-template-columns: 1fr;
+            grid-template-areas:
+                "header"
+                "menu"
+                "hero"
+                "main"
+                "banner"
+                "extra"
+                "image";
+        }
+
+        .box {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 70px;
+            font-size: 16px;
+        }
+
+        .header {
+            grid-area: header;
+            background: #101729;
+            color: white;
+            min-height: 40px;
+        }
+
+        .menu {
+            grid-area: menu;
+            background: #f33449;
+            color: white;
+        }
+
+        .hero {
+            grid-area: hero;
+            background: #4d88c7;
+            color: white;
+            min-height: 140px;
+        }
+
+        .main {
+            grid-area: main;
+            background: #24364f;
+            color: white;
+            min-height: 100px;
+        }
+
+        .banner {
+            grid-area: banner;
+            background: #ffd36b;
+        }
+
+        .extra {
+            grid-area: extra;
+            background: #4cbd9b;
+        }
+
+        .image {
+            grid-area: image;
+            background: #bfe4e4;
+        }
+
+        /* TABLET */
+        @media (min-width: 600px) {
+            .container {
+                grid-template-columns: 1fr 3fr 1fr;
+                grid-template-areas:
+                    "header header header"
+                    "menu hero hero"
+                    "menu main main"
+                    "menu banner banner"
+                    "menu extra image";
+            }
+
+            .header {
+                min-height: 40px;
+            }
+
+            .menu {
+                grid-row: 2 / 6;
+            }
+
+            .hero {
+                min-height: 145px;
+            }
+
+            .main {
+                min-height: 145px;
+            }
+        }
+
+        /* LAPTOP / DESKTOP */
+        @media (min-width: 900px) {
+            .container {
+                grid-template-columns: 1.5fr 1.5fr 1fr 1fr;
+                grid-template-areas:
+                    "header menu menu menu"
+                    "hero hero hero hero"
+                    "main main . image"
+                    "main main . extra"
+                    "banner banner banner banner";
+            }
+
+            .header {
+                min-height: 40px;
+            }
+
+            .menu {
+                grid-row: auto;
+            }
+
+            .hero {
+                min-height: 220px;
+            }
+
+            .main {
+                min-height: 146px;
+            }
+
+            .image,
+            .extra {
+                min-height: 73px;
+            }
+
+            .banner {
+                min-height: 74px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+
+        <div class="box header">HEADER</div>
+
+        <div class="box menu">MENU</div>
+
+        <div class="box hero">HERO</div>
+
+        <div class="box main">MAIN</div>
+
+        <div class="box banner">BANNER</div>
+
+        <div class="box extra">EXTRA</div>
+
+        <div class="box image">IMAGE</div>
+
+    </div>
+
+</body>
+</html>
